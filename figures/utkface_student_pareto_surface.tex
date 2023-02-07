@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepgfplotslibrary{colorbrewer}
+\usepgfplotslibrary{colormaps} 
+
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel = {Epsilon Budget Achieved ($\varepsilon$)},
+    ylabel = {Max Fairness\\Violation ($\gamma$)},
+    zlabel = {Student Accuracy},
+    y dir = reverse,
+    x dir = reverse,
+    xtick distance = 1,
+    zlabel style={font=\footnotesize},
+    ylabel style={sloped, font=\footnotesize, align=center},
+    xlabel style={sloped, font=\footnotesize, align=center},
+    colorbar,
+    colormap/viridis,
+        ]
+    \addplot3 [
+            surf,
+            mesh/rows=100,
+            mesh/cols=100,
+            mesh/ordering=y varies,
+            point meta=explicit,
+            unbounded coords=jump] table [
+            col sep=comma, 
+            header=true, 
+            x={epsilon},
+            y={violation},
+            z={accuracy},
+            meta={coverage}] {utkface_student_pareto_surface.csv};
+\end{axis}
+\end{tikzpicture}           
+\end{document}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[Interactive Figures] Learning Impartially: A Walk on the Pareto Frontier of Fairness, Privacy, and Utility</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Figures for FairPATE">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script src="https://cdn.plot.ly/plotly-2.18.0.min.js?"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script> 
+        // Add plotly-produced file paths here. Remember to choose a unique id for each Figure. Let's use the figure number from the paper.
+        $(function(){
+        $("#figure1").load("static/utkface_pate_pre_None_pareto_surface.html"); 
+        $("#figure4a").load("static/utkface_pate_pre,pate_inprocessing_pareto_surface.html"); 
+        $("#figure4b").load("static/utkface_dpsgd_pre,dpsgd_inprocessing_pareto_surface.html"); 
+        $("#figure5a").load("static/utkface_pate,vanilla_pate_preprocessing_pareto_surface.html"); 
+        $("#figure5b").load("static/utkface_pate_pre,vanilla_pate_pre_preprocessing_pareto_surface.html"); 
+        $("#figure6a").load("static/utkface_pate,vanilla_pate_inprocessing_pareto_surface.html"); 
+        $("#figure6b").load("static/utkface_pate_pre,vanilla_pate_pre_inprocessing_pareto_surface.html"); 
+        $("#figure7").load("static/utkface_pate_pre,dpsgd_pre_inprocessing_pareto_surface.html"); 
+        $("#figure8a").load("static/celeba_pate_pre_None_pareto_surface.html"); 
+        $("#figure8b").load("static/chexpert_pate_pre_None_pareto_surface.html"); 
+        $("#figure9").load("static/utkface-fairface_pate_multidataset_None_pareto_surface.html"); 
+        });
+    </script> 
+    <style>
+        body
+        {
+            /* max-width: 60rem; */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Interactive Figures for <i>"Learning Impartially: A Walk on the Pareto Frontier of Fairness, Privacy, and Utility"</i></h1>
+
+    <!-- Add figures here using the divs chosen earlier -->
+    <h2>Figure 1: UTKFace: FairPATE</h2>
+    <div id="figure1"> </div>
+
+    <h2>Figure 4 (a): UTKFace: FairPATE vs. FairPATE Without Post-processor</h2>
+    <div id="figure4a"> </div>
+
+
+    <h2>Figure 4 (b): UTKFace: FairDP-SGD vs. FairDP-SGD Without Post-processor</h2>
+    <div id="figure4b"> </div>
+
+    <h2>Figure 5 (a): UTKFace: FairPATE Without Post-processor vs. PATE-pre Without Post-processor</h2>
+    <div id="figure5a"> </div>
+
+    <h2>Figure 5 (b): UTKFace: FairPATE vs. PATE-Pre</h2>
+    <div id="figure5b"> </div>
+
+    <h2>Figure 6 (a): UTKFace: FairPATE Without Post-processor vs. PATE-Pre Without Post-processor</h2>
+    <div id="figure6a"> </div>
+
+    <h2>Figure 6 (b): UTKFace: FairPATE vs. PATE-In</h2>
+    <div id="figure6b"> </div>
+
+    <h2>Figure 7: UTKFace: FairPATE vs. FairDP-SGD</h2>
+    <div id="figure7"> </div>
+
+    <h2>Figure 8 (a): CelebA: FairPATE</h2>
+    <div id="figure8a"> </div>
+
+    <h2>Figure 8 (b): CheXpert: FairPATE</h2>
+    <div id="figure8b"> </div>
+
+    <h2>Figure 9: UTKFace and FairFace: FairPATE</h2>
+    <div id="figure9"> </div>
+</body>
