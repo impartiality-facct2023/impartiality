@@ -1,36 +1,49 @@
-## Description of the code
+# Interactive Plots 
 
-The `main.py` file contains the starting point. The parameters for the program
-are in `parameters.py` file.
+1. Running any visualization commands such as 
+    ```bash
+    ```
+    should also place an `html` file in `/figuresWebpage/static/` such as `figuresWebpage/static/utkface_all_None_pareto_surface.html`
 
-### Examples of the pipeline:
+2. Edit `index.html`, and add figures path to the header indicated:
 
-The bash code for running the scripts can be found in the `experiments` folder.
-
-1. Train private models:
-See experiments/utkface_train_100.sh
-
-2. Generate query-answer pairs for training PATE student models:
-See experiments/utkface_query_search_100.sh
-
-3. Train FairPATE student models:
-See experiments/utkface_train_fairPATE.sh
-
-4. Train FairDP-SGD models:
-See experiments/utkface_train_fairDPSGD.sh
-
-5. Train PATE-Pre models:
-See experiments/utkface_vanilla_preprocess.sh
-
-6. Train PATE-In models:
-See experiments/utkface_vanilla_inprocess.sh
+    ```html
+    <script> 
+            // Add plotly-produced file paths here. Remember to choose a unique id for each Figure. Let's use the figure number from the paper.
+            $(function(){
+            ("#figure1").load("static/utkface_all_None_pareto_surface.html"); 
+            $("#figure2").load("static/colormnist_all_None_pareto_surface.html"); 
+            });
+    </script>
+    ```
 
 
-## The main implementation parts
+3. Edit body of `index.html` and reference the figures:
+    ```html
+    <body>
+        <h1>Figures for FairPATE</h1>
 
-The privacy analysis estimation function with fairness in PATE can be found in: `analysis/rdp_cumulative.py`
+        <!-- Add figures here using the ids chosen earlier -->
+        <h2>Figure 1</h2>
+        <div id="figure1"> </div>
 
-The demographic parity loss (DPL) implementation can be found in: `fairness/losses.py`
+        <h2>Figure 2</h2>
+        <div id="figure2"> </div>
+    </body>
+    ```
+
+
+4. See webpage with a simple webserver on port 8090 (for example):
+    ```bash
+    cd figuresWebpage
+    python -m http.server 8090
+    ```
+
+5. Head to [http://localhost:8090](http://localhost:8090) or [http://127.0.0.1:8090](http://127.0.0.1:8090) on any browser to see the webpage.
+
+
+
+
 
 
 
